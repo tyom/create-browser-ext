@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es6",
+    "esModuleInterop": true,
+    "sourceMap": false,
+    "noEmitOnError": true,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "baseUrl": ".",
+    "paths": {
+      "react": ["node_modules/preact/compat/"],
+      "react-dom": ["node_modules/preact/compat/"]
+    }
+  }
+}
