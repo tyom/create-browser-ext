@@ -1,4 +1,9 @@
 import { render } from 'preact';
-import { InPagePanel } from './components';
+import { Frame, InPagePanel } from './components';
 
-render(<InPagePanel />, document.body);
+render(
+  <Frame>
+    <InPagePanel />
+  </Frame>,
+  document.body
+);

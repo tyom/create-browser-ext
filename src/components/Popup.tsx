@@ -1,45 +1,76 @@
 import { useState, useEffect } from 'preact/hooks';
+import tw from 'twin.macro';
 import styled from '@emotion/styled';
-import Button from './Button';
+import { Global } from '@emotion/react';
+import globalStyles from '../globalStyles';
 
 export default function Popup() {
   const [showContentPanel, setShowContentPanel] = useState(false);
-  const [tabId, setTabId] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
-      setTabId(tab.id);
-    });
-
     chrome.storage.local.get(['showContentPanel'], (result) => {
       setShowContentPanel(result.showContentPanel);
     });
   }, []);
 
   useEffect(() => {
-    if (tabId) {
-      chrome.tabs.sendMessage(tabId, {
-        showContentPanel,
-      });
-    }
+    chrome.storage.local.set({ showContentPanel });
   }, [showContentPanel]);
 
-  function handleContentScript() {
+  function handleContentPanel() {
     setShowContentPanel(!showContentPanel);
   }
 
   return (
     <StyledPopup>
-      <h1>Chrome Extension Starter Kit</h1>
-      <Button onClick={handleContentScript}>
-        {showContentPanel ? 'Hide' : 'Show'} content panel
-      </Button>
+      <Global styles={globalStyles} />
+      <header>
+        <h2>Chrome Extension Starter Kit</h2>
+      </header>
+      <ul>
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              onChange={handleContentPanel}
+              checked={showContentPanel}
+            />
+            Content panel
+          </label>
+        </li>
+      </ul>
     </StyledPopup>
   );
 }
 
 const StyledPopup = styled.div`
-  background: #ddd;
-  padding: 10px;
-  min-width: 250px;
+  ${tw`
+    text-base
+    bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-100
+    cursor-default shadow
+  `}
+
+  header {
+    ${tw`py-2 px-4 bg-gray-400 dark:bg-gray-800`}
+  }
+
+  h2 {
+    ${tw`text-lg font-bold m-0 whitespace-nowrap`}
+  }
+
+  ul {
+    ${tw`select-none list-none p-0 m-0`}
+  }
+
+  li {
+    ${tw`py-3 px-4`}
+  }
+
+  li + li {
+    ${tw`border-0 border-t border-solid border-gray-400`}
+  }
+
+  [type='checkbox'] {
+    margin-right: 0.4rem;
+  }
 `;
