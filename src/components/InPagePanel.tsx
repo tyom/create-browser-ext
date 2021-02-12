@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import Frame from 'react-frame-component';
 import pkg from '../../package.json';
 
@@ -9,8 +10,8 @@ type InPagePanelProps = {
   position?: 'top' | 'right' | 'bottom' | 'left';
 };
 type StyleProps = {
-  $visible: boolean;
-  $position: 'top' | 'right' | 'bottom' | 'left';
+  visible: boolean;
+  position: 'top' | 'right' | 'bottom' | 'left';
 };
 
 export default function InPagePanel({ position = 'top' }: InPagePanelProps) {
@@ -29,7 +30,7 @@ export default function InPagePanel({ position = 'top' }: InPagePanelProps) {
   }, []);
 
   return (
-    <StyledFrame id={rootId} $visible={visible} $position={position}>
+    <StyledFrame id={rootId} visible={visible} position={position}>
       <h1>In-page panel</h1>
     </StyledFrame>
   );
@@ -71,8 +72,8 @@ const positionFixedLeft = css`
   box-shadow: 1px 0 3px #0004;
 `;
 
-function positionStyles({ $position }: Partial<StyleProps>) {
-  switch ($position) {
+function positionStyles({ position }: Partial<StyleProps>) {
+  switch (position) {
     case 'top':
       return positionFixedTop;
     case 'right':
@@ -84,8 +85,8 @@ function positionStyles({ $position }: Partial<StyleProps>) {
   }
 }
 
-const visibilityStyles = ({ $visible }: Partial<StyleProps>) =>
-  $visible ? 'display: block' : 'display: none';
+const visibilityStyles = ({ visible }: Partial<StyleProps>) =>
+  visible ? 'display: block' : 'display: none';
 
 const StyledFrame = styled(Frame)<StyleProps>`
   z-index: 9999;

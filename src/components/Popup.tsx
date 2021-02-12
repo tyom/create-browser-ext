@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'preact/hooks';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Button from './Button';
 
-type PopupProps = {};
-
-export default function Popup({}: PopupProps) {
+export default function Popup() {
   const [showContentPanel, setShowContentPanel] = useState(false);
   const [tabId, setTabId] = useState<number | undefined>(undefined);
 
@@ -14,7 +12,6 @@ export default function Popup({}: PopupProps) {
     });
 
     chrome.storage.local.get(['showContentPanel'], (result) => {
-      console.log(result.showContentPanel);
       setShowContentPanel(result.showContentPanel);
     });
   }, []);
@@ -44,6 +41,5 @@ export default function Popup({}: PopupProps) {
 const StyledPopup = styled.div`
   background: #ddd;
   padding: 10px;
-  min-width: 500px;
-  min-height: 400px;
+  min-width: 250px;
 `;

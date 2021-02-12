@@ -8,8 +8,9 @@
     "sourceMap": false,
     "noEmitOnError": true,
     "resolveJsonModule": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "baseUrl": ".",
     "paths": {
       "react": ["node_modules/preact/compat/"],

@@ -1,5 +1,5 @@
 import { ComponentChildren } from 'preact';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 type ButtonProps = {
   children: ComponentChildren;
