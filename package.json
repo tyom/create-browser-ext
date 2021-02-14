@@ -21,6 +21,7 @@
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "crx-hotreload": "^1.0.6",
+    "daisyui": "^0.11.4",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "preact": "^10.5.12",
