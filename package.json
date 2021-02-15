@@ -1,6 +1,5 @@
 {
-  "name": "chrome-extension-starter",
-  "private": true,
+  "name": "@tyom/create-chrome-extension",
   "version": "0.1.0",
   "description": "Chrome extension starter kit",
   "repository": "git@github.com:tyom/chrome-extension-starter.git",
