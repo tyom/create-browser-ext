@@ -45,7 +45,7 @@ const StyledPanel = styled.div`
   }
 
   h1 {
-    ${tw`text-2xl m-0`}
+    ${tw`text-2xl`}
   }
 
   p {
@@ -58,8 +58,9 @@ const StyledPanel = styled.div`
 
   .close {
     ${tw`
-      appearance-none text-2xl ml-auto cursor-pointer flex bg-transparent border-0 p-0
-      text-gray-800 dark:text-gray-100
+      btn btn-outline btn-square btn-sm
+      text-2xl ml-auto w-auto px-1!
+      text-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:border-gray-600
     `}
   }
 `;

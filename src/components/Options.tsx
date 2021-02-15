@@ -1,6 +1,5 @@
 import tw from 'twin.macro';
 import styled from '@emotion/styled';
-import { Global } from '@emotion/react';
 import { cx } from '@emotion/css';
 import { useEffect, useState } from 'preact/hooks';
 import globalStyles from '../globalStyles';
@@ -25,7 +24,7 @@ export default function Options() {
 
   return (
     <StyledOptions>
-      <Global styles={globalStyles} />
+      {globalStyles}
       <div className="container">
         <header>
           <h1>Settings</h1>
@@ -89,11 +88,7 @@ const StyledOptions = styled.div`
   }
 
   h1 {
-    ${tw`text-2xl m-0`}
-  }
-
-  ul {
-    ${tw`p-0 m-0 list-none`}
+    ${tw`text-2xl`}
   }
 
   li {
@@ -101,7 +96,7 @@ const StyledOptions = styled.div`
   }
 
   li + li {
-    ${tw`border-0 border-t border-solid border-gray-200 dark:border-gray-800`}
+    ${tw`border-t border-gray-200 dark:border-gray-800`}
   }
 
   .disabled {

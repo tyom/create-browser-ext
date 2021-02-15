@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'preact/hooks';
 import tw from 'twin.macro';
 import styled from '@emotion/styled';
-import { Global } from '@emotion/react';
 import globalStyles from '../globalStyles';
 
 export default function Popup() {
@@ -23,18 +22,21 @@ export default function Popup() {
 
   return (
     <StyledPopup>
-      <Global styles={globalStyles} />
+      {globalStyles}
       <header>
         <h2>Chrome Extension Starter Kit</h2>
       </header>
       <ul>
         <li>
           <label>
-            <input
-              type="checkbox"
-              onChange={handleContentPanel}
-              checked={showContentPanel}
-            />
+            <div className="control">
+              <input
+                type="checkbox"
+                onChange={handleContentPanel}
+                checked={showContentPanel}
+              />
+              <span className="checkbox-mark" />
+            </div>
             Content panel
           </label>
         </li>
@@ -45,7 +47,7 @@ export default function Popup() {
 
 const StyledPopup = styled.div`
   ${tw`
-    text-base
+    text-sm select-none
     bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-100
     cursor-default shadow
   `}
@@ -55,11 +57,7 @@ const StyledPopup = styled.div`
   }
 
   h2 {
-    ${tw`text-lg font-bold m-0 whitespace-nowrap`}
-  }
-
-  ul {
-    ${tw`select-none list-none p-0 m-0`}
+    ${tw`text-lg whitespace-nowrap`}
   }
 
   li {
@@ -67,10 +65,22 @@ const StyledPopup = styled.div`
   }
 
   li + li {
-    ${tw`border-0 border-t border-solid border-gray-400`}
+    ${tw`border-t border-gray-400`}
+  }
+
+  label {
+    ${tw`label justify-start`}
+  }
+
+  .control {
+    ${tw`mr-2`}
   }
 
   [type='checkbox'] {
-    margin-right: 0.4rem;
+    ${tw`checkbox checkbox-accent`}
+
+    &:not(:checked):hover ~ .checkbox-mark::before {
+      ${tw`opacity-20`}
+    }
   }
 `;

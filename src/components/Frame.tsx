@@ -39,7 +39,7 @@ const FrameProvider = ({ children }: FrameProviderProps) => (
     {({ document }: FrameContextProps) => {
       return (
         <CacheProvider value={memoizedCreateCacheWithContainer(document.head)}>
-          <Global styles={globalStyles} />
+          {globalStyles}
           {children}
         </CacheProvider>
       );
