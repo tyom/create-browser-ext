@@ -1,20 +1,11 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "module": "esnext",
+    "target": "es2015",
     "moduleResolution": "node",
-    "target": "es6",
-    "esModuleInterop": true,
-    "sourceMap": false,
-    "noEmitOnError": true,
+    "strict": true,
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment",
-    "baseUrl": ".",
-    "paths": {
-      "react": ["node_modules/preact/compat/"],
-      "react-dom": ["node_modules/preact/compat/"]
-    }
-  }
+    "esModuleInterop": true,
+    "skipLibCheck": false
+  },
+  "include": ["src"]
 }

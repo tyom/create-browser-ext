@@ -1,54 +1,35 @@
 {
   "name": "@tyom/create-chrome-extension",
   "version": "0.1.0",
-  "description": "Chrome extension starter kit",
+  "description": "Create Chrome extension starter kit",
   "repository": "git@github.com:tyom/chrome-extension-starter.git",
   "author": "Tyom Semonov <inspiro@gmail.com>",
   "license": "MIT",
+  "main": "./dist/index.js",
   "scripts": {
-    "build": "del dist && NODE_ENV=production webpack",
-    "watch": "del dist && NODE_ENV=development webpack",
+    "start": "$npm_package_bin_cce",
+    "prepare": "microbundle --target node --format cjs --no-sourcemap src/index.ts",
     "format": "prettier --write '**/*.{ts,tsx,css,html}'"
   },
-  "babelMacros": {
-    "twin": {
-      "preset": "emotion"
-    }
+  "bin": {
+    "cce": "./dist/index.js"
   },
-  "dependencies": {
-    "@emotion/css": "^11.1.3",
-    "@emotion/react": "^11.1.5",
-    "@emotion/styled": "^11.1.5",
-    "crx-hotreload": "^1.0.6",
-    "daisyui": "^0.11.4",
-    "lodash.debounce": "^4.0.8",
-    "lodash.throttle": "^4.1.1",
-    "preact": "^10.5.12",
-    "prop-types": "^15.7.2",
-    "react-frame-component": "^4.1.3",
-    "react-icons": "^4.2.0",
-    "twin.macro": "^2.2.3"
-  },
+  "files": [
+    "dist",
+    "templates"
+  ],
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/preset-env": "^7.12.16",
-    "@babel/preset-typescript": "^7.12.16",
-    "@emotion/babel-preset-css-prop": "^11.2.0",
-    "@emotion/cache": "^11.1.3",
-    "@emotion/weak-memoize": "^0.2.5",
-    "@types/chrome": "^0.0.129",
-    "@types/lodash.debounce": "^4.0.6",
-    "@types/lodash.throttle": "^4.1.6",
-    "@types/react": "^17.0.2",
-    "@types/react-frame-component": "^4.1.1",
-    "babel-loader": "^8.2.2",
-    "babel-plugin-macros": "^3.0.1",
-    "copy-webpack-plugin": "^7.0.0",
-    "del-cli": "^3.0.1",
+    "@types/ncp": "^2.0.4",
+    "@types/node": "^14.14.28",
+    "@types/prompts": "2.0.1",
+    "@types/sade": "^1.7.2",
+    "kleur": "^4.1.4",
+    "microbundle": "^0.12.4",
+    "ncp": "^2.0.0",
+    "pkg-install": "^1.0.0",
     "prettier": "^2.2.1",
-    "ts-loader": "^8.0.17",
-    "typescript": "^4.1.5",
-    "webpack": "^5.21.2",
-    "webpack-cli": "^4.5.0"
+    "prompts": "^2.4.0",
+    "sade": "^1.7.4",
+    "typescript": "^4.1.5"
   }
 }

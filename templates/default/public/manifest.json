@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Chrome Extension Starter",
-  "description": "Chrome Extension Starter Kit",
+  "name": "{{title}}",
+  "description": "{{description}}",
   "version": "0.1.0",
   "options_page": "options.html",
   "browser_action": {
