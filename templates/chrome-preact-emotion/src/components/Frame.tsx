@@ -3,14 +3,11 @@ import { ComponentChildren, RefObject } from 'preact';
 import debounce from 'lodash.debounce';
 import styled from '@emotion/styled';
 import weakMemoize from '@emotion/weak-memoize';
-import { CacheProvider, Global } from '@emotion/react';
+import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import Frame, { FrameContextConsumer, FrameContextProps } from 'react-frame-component';
 import tw from 'twin.macro';
-import pkg from '../../package.json';
 import globalStyles from '../globalStyles';
-
-const rootId = `${pkg.name}-root`;
 
 type StyleProps = {
   visible: boolean;
@@ -95,7 +92,6 @@ export default function FramedContent({ children }: FramedContentProps) {
   return (
     <StyledFrame
       ref={iframeRef}
-      id={rootId}
       visible={visible}
       position={position}
       positionType={positionType}
