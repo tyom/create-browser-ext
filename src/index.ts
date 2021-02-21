@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import path from 'path';
 import sade from 'sade';
-import { promises as fs } from 'fs';
+import { readdirSync, statSync, mkdirSync } from 'fs';
 import kleur from 'kleur';
 import install from 'pkg-install';
 import { version } from '../package.json';
@@ -13,7 +13,7 @@ export const TEMPLATES_DIR = 'templates';
 const defaultFields = {
   title: 'New Chrome Extension',
   description: 'A Chrome extension built with a starter kit',
-  template: 'chrome-preact',
+  // template: 'chrome-react',
 };
 
 async function run(dir: string) {
@@ -24,11 +24,15 @@ async function run(dir: string) {
     console.log('Exiting…');
     process.exit();
   }
-  await fs.mkdir(projectDir, { recursive: true });
-  const templateDirs = await fs.readdir(path.resolve(__dirname, '..', TEMPLATES_DIR));
+  mkdirSync(projectDir, { recursive: true });
+
+  const templatesPath = path.resolve(__dirname, '..', TEMPLATES_DIR);
+  const templateVariants = readdirSync(templatesPath).filter(
+    (f) => statSync(path.join(templatesPath, f)).isDirectory() && !f.startsWith('_')
+  );
   const projectPath = path.resolve(process.cwd(), projectDir);
 
-  const userFields = await getUserFields(defaultFields, templateDirs);
+  const userFields = await getUserFields(defaultFields, templateVariants);
 
   const fields = {
     ...defaultFields,
@@ -52,10 +56,10 @@ async function run(dir: string) {
   `);
 }
 
-sade('create-extension [dir]', true)
+sade('create-browser-ext [dir]', true)
   .version(version)
   .describe(
-    'Initialize a Chrome Extension. If [dir] is omitted, you will be prompted to enter the directory.'
+    'Initialize a template to build browser extension. If [dir] is omitted, you will be prompted to enter the directory.'
   )
   .example(`./some-directory`)
   .action(run)

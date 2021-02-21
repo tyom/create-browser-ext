@@ -1,5 +1,5 @@
 import prompts from 'prompts';
-import { Fields, TemplateDirs } from './types';
+import { Fields, TemplateVariants } from './types';
 
 export async function getProjectDir(initialDir: string) {
   let projectDir = initialDir;
@@ -17,8 +17,9 @@ export async function getProjectDir(initialDir: string) {
 
 export async function getUserFields(
   defaultFields: Fields = {},
-  templateDirs: TemplateDirs
+  templateVariants: TemplateVariants
 ) {
+  const initialChoice = templateVariants.indexOf(defaultFields.template);
   return prompts([
     {
       type: 'text',
@@ -27,13 +28,13 @@ export async function getUserFields(
       initial: defaultFields.title,
     },
     {
-      type: templateDirs.length > 1 ? 'select' : null,
+      type: templateVariants.length > 1 ? 'select' : null,
       name: 'template',
       message: 'Which extension template do you wish to use?',
-      initial: templateDirs.indexOf(defaultFields.template),
-      choices: templateDirs.map((td) => ({
-        title: td,
-        value: td,
+      initial: initialChoice >= 0 ? initialChoice : 0,
+      choices: templateVariants.map((variant) => ({
+        title: variant,
+        value: variant,
       })),
     },
   ]);
