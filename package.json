@@ -1,8 +1,8 @@
 {
-  "name": "@tyom/create-chrome-extension",
+  "name": "create-browser-ext",
   "version": "0.1.0",
-  "description": "Create Chrome extension starter kit",
-  "repository": "git@github.com:tyom/chrome-extension-starter.git",
+  "description": "Create browser extension starter kit",
+  "repository": "git@github.com:tyom/create-browser-ext.git",
   "author": "Tyom Semonov <inspiro@gmail.com>",
   "license": "MIT",
   "main": "./dist/index.js",
@@ -12,7 +12,7 @@
     "format": "prettier --write '**/*.{ts,tsx,css,html}'"
   },
   "bin": {
-    "cce": "./dist/index.js"
+    "cbe": "./dist/index.js"
   },
   "files": [
     "dist",
@@ -31,5 +31,6 @@
     "prompts": "^2.4.0",
     "sade": "^1.7.4",
     "typescript": "^4.1.5"
-  }
+  },
+  "dependencies": {}
 }
