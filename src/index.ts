@@ -13,7 +13,7 @@ export const TEMPLATES_DIR = 'templates';
 const defaultFields = {
   title: 'New Chrome Extension',
   description: 'A Chrome extension built with a starter kit',
-  template: 'default',
+  template: 'chrome-preact',
 };
 
 async function run(dir: string) {

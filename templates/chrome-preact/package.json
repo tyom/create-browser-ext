@@ -1,8 +1,4 @@
 {
-  "name": "chrome-extension-starter-kit",
-  "private": true,
-  "version": "0.1.0",
-  "description": "{{title}}",
   "scripts": {
     "build": "del dist && NODE_ENV=production webpack",
     "watch": "del dist && NODE_ENV=development webpack",
