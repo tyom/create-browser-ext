@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "{{title}}",
+  "description": "{{description}}",
+  "version": "0.1.0",
+  "options_page": "options.html",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["vendor.js", "content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["vendor.js", "background.js", "hot-reload.js"]
+  },
+  "permissions": ["storage", "<all_urls>"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
+}
