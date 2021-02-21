@@ -1,6 +1,6 @@
 {
   "name": "create-browser-ext",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create browser extension starter kit",
   "repository": "git@github.com:tyom/create-browser-ext.git",
   "author": "Tyom Semonov <inspiro@gmail.com>",
