@@ -12,7 +12,7 @@ import globalStyles from '../globalStyles';
 type StyleProps = {
   visible: boolean;
   position: 'top' | 'right' | 'bottom' | 'left';
-  positionType: 'top' | 'right' | 'bottom' | 'left';
+  positionType: 'absolute' | 'relative' | 'fixed' | 'static';
 };
 
 type FramedContentProps = {
