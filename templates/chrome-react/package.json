@@ -1,4 +1,6 @@
 {
+  "name": "chrome-react",
+  "description": "Chrome: React + Styled Components + Tailwind",
   "scripts": {
     "build": "del dist && NODE_ENV=production webpack",
     "watch": "del dist && NODE_ENV=development webpack",

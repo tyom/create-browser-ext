@@ -1,4 +1,6 @@
 {
+  "name": "chrome-preact-emotion",
+  "description": "Chrome: Preact + Emotion + Tailwind",
   "scripts": {
     "build": "del dist && NODE_ENV=production webpack",
     "watch": "del dist && NODE_ENV=development webpack",

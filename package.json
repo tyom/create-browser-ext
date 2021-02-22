@@ -17,11 +17,13 @@
     "templates"
   ],
   "devDependencies": {
+    "@types/lodash": "^4.14.168",
     "@types/ncp": "^2.0.4",
     "@types/node": "^14.14.28",
     "@types/prompts": "2.0.1",
     "@types/sade": "^1.7.2",
     "kleur": "^4.1.4",
+    "lodash": "^4.17.21",
     "microbundle": "^0.12.4",
     "ncp": "^2.0.0",
     "pkg-install": "^1.0.0",
@@ -29,6 +31,5 @@
     "prompts": "^2.4.0",
     "sade": "^1.7.4",
     "typescript": "^4.1.5"
-  },
-  "dependencies": {}
+  }
 }

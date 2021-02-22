@@ -2,12 +2,12 @@ import path from 'path';
 import { Transform } from 'stream';
 import { promisify } from 'util';
 import { ncp } from 'ncp';
-import { Fields } from './types';
+import { ScaffoldData } from './';
 
 const cp = promisify(ncp);
 
-export async function scaffold(source: string, destination: string, fields: Fields) {
-  return cp(source, destination, {
+export async function scaffold(projectData: ScaffoldData): Promise<void> {
+  return cp(projectData.templatePath, projectData.projectPath, {
     clobber: true,
     filter(name) {
       return !/(node_modules\/|dist\/)/.test(name);
@@ -21,7 +21,7 @@ export async function scaffold(source: string, destination: string, fields: Fiel
                 .toString()
                 .replace(
                   /{{([a-zA-Z0-9_]+)}}/g,
-                  (match: string, p1: string) => fields[p1] || match
+                  (match: string, p1: keyof ScaffoldData) => projectData[p1] || match
                 )
             : chunk;
           done(null, output);
