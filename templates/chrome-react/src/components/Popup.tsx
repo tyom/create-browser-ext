@@ -21,19 +21,18 @@ export default function Popup() {
 
   return (
     <StyledPopup>
-      <header>
-        <h2>Chrome Extension Starter Kit</h2>
+      <header tw="py-2 px-3 bg-gray-300">
+        <h2 tw="text-lg font-bold">Chrome Extension Starter Kit</h2>
       </header>
-      <ul tw="bg-red-500">
+      <ul tw="bg-gray-200 py-2 px-3 text-base">
         <li>
-          <label>
-            <div className="control">
+          <label tw="flex items-center">
+            <div tw="mr-2">
               <input
                 type="checkbox"
                 onChange={handleContentPanel}
                 checked={showContentPanel}
               />
-              <span className="checkbox-mark" />
             </div>
             Content panel
           </label>

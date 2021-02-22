@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Popup } from './components';
-import GlobalStyles from './globalStyles';
+import GlobalStyles from './GlobalStyles';
 
 render(
   <>
